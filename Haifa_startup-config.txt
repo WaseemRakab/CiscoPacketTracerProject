@@ -1,0 +1,121 @@
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname Haifa
+!
+!
+!
+enable password 7 08701E1D5D
+!
+!
+ip dhcp excluded-address 80.0.0.2
+ip dhcp excluded-address 80.0.0.1
+!
+ip dhcp pool Haifa
+ network 80.0.0.0 255.0.0.0
+ default-router 80.0.0.1
+ dns-server 192.168.2.2
+ domain-name wri
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ bandwidth 14000
+ ip address 79.179.0.1 255.0.0.0
+!
+interface GigabitEthernet1/0
+ bandwidth 15000
+ ip address 109.67.0.1 255.255.0.0
+!
+interface GigabitEthernet2/0
+ bandwidth 23000
+ ip address 46.146.5.1 255.0.0.0
+!
+interface GigabitEthernet3/0
+ bandwidth 47000
+ ip address 89.89.15.1 255.0.0.0
+!
+interface GigabitEthernet5/0
+ bandwidth 2000000
+ ip address 80.0.0.1 255.0.0.0
+!
+interface Serial6/0
+ bandwidth 20000
+ ip address 20.0.0.1 255.0.0.0
+ clock rate 2000000
+!
+interface Serial7/0
+ bandwidth 370000
+ ip address 50.0.0.1 255.0.0.0
+ clock rate 2000000
+!
+interface Serial8/0
+ bandwidth 950000
+ ip address 90.0.0.2 255.0.0.0
+!
+interface Serial9/0
+ bandwidth 34200
+ ip address 40.0.0.1 255.0.0.0
+!
+router eigrp 1234
+ network 80.0.0.0
+ network 20.0.0.0
+ network 40.0.0.0
+ network 50.0.0.0
+ network 90.0.0.0
+ network 79.0.0.0
+ network 109.0.0.0
+ network 46.0.0.0
+ network 89.0.0.0
+ auto-summary
+!
+ip classless
+ip route 180.177.0.0 255.255.0.0 90.0.0.1 
+ip route 180.177.0.0 255.255.0.0 89.89.15.2 
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0
+ password 7 08701E1D5D
+ login
+line vty 1 4
+ login
+!
+!
+!
+end
+

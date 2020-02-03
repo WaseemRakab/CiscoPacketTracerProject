@@ -1,0 +1,111 @@
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Milano
+!
+!
+!
+!
+ip dhcp excluded-address 180.177.0.1
+!
+ip dhcp pool Milano
+ network 180.177.0.0 255.255.0.0
+ default-router 180.177.0.1
+ dns-server 192.168.2.2
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ bandwidth 910000
+ ip address 89.89.15.2 255.0.0.0
+!
+interface GigabitEthernet1/0
+ bandwidth 72900
+ ip address 56.37.130.2 255.0.0.0
+!
+interface GigabitEthernet2/0
+ bandwidth 78100
+ ip address 212.179.12.2 255.255.255.0
+!
+interface GigabitEthernet3/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet5/0
+ bandwidth 750000
+ ip address 180.177.0.1 255.255.0.0
+!
+interface GigabitEthernet6/0
+ bandwidth 17500
+ ip address 130.0.0.1 255.255.0.0
+!
+interface Serial7/0
+ bandwidth 800000
+ ip address 110.0.0.1 255.0.0.0
+!
+interface Serial8/0
+ bandwidth 86500
+ ip address 100.0.0.1 255.0.0.0
+!
+interface Serial9/0
+ bandwidth 1500000
+ ip address 90.0.0.1 255.0.0.0
+ clock rate 2000000
+!
+ip classless
+ip route 80.0.0.0 255.0.0.0 90.0.0.2 
+ip route 44.0.0.0 255.0.0.0 100.0.0.2 
+ip route 195.1.1.0 255.255.255.0 110.0.0.2 
+ip route 177.1.0.0 255.255.0.0 110.0.0.2 
+ip route 60.0.0.0 255.0.0.0 110.0.0.2 
+ip route 192.168.2.0 255.255.255.0 130.0.0.2 
+ip route 192.168.2.0 255.255.255.0 100.0.0.2 
+ip route 80.0.0.0 255.0.0.0 89.89.15.1 
+ip route 195.1.1.0 255.255.255.0 56.37.130.1 
+ip route 177.1.0.0 255.255.0.0 56.37.130.1 
+ip route 60.0.0.0 255.0.0.0 56.37.130.1 
+ip route 44.0.0.0 255.0.0.0 212.179.12.1 
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
