@@ -1,4 +1,4 @@
 # CiscoPacketTracerProject
 >WAN - LAN Project
-5 Branches Conntected WAN Network Simulation<br>
-Via Cisco Packet Tracer and Cisco CLI
+5 Branches Connected WAN Network Simulation<br>
+Via Cisco Packet Tracer implemented using Cisco CLI
